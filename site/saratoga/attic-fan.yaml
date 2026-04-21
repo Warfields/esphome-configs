@@ -4,5 +4,5 @@ substitutions:
   ip_address: 10.10.10.45
 
 packages:
-  sys-fs-01: !include "../../models/esp8266/sys-fs-01.yaml"
+  ks-602s: !include "../../models/bk7231n/ks-602s.yaml"
   static_ip: !include "../../common/static_ip.yaml"
