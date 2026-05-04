@@ -1,0 +1,34 @@
+light:
+  - platform: binary
+    name: "${upper_outlet_light_name}"
+    id: upper_outlet_light
+    output: upper_outlet_light_output
+
+output:
+  - platform: template
+    type: binary
+    id: upper_outlet_light_output
+    write_action:
+      - if:
+          condition:
+            - lambda: "return state;"
+            - switch.is_off: upper_outlet
+          then:
+            - switch.turn_on: upper_outlet
+      - if:
+          condition:
+            - lambda: "return !state;"
+            - switch.is_on: upper_outlet
+          then:
+            - switch.turn_off: upper_outlet
+
+switch:
+  - id: !extend upper_outlet
+    internal: True
+  - platform: "copy"
+    source_id: upper_outlet
+    id: upper_outlet_copy
+    on_turn_on:
+      - light.turn_on: upper_outlet_light
+    on_turn_off:
+      - light.turn_off: upper_outlet_light

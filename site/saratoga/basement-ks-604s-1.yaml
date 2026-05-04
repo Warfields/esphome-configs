@@ -1,0 +1,11 @@
+substitutions:
+  name: basement-bookcase-1
+  friendly_name: "Second Basement Bookcase KS-604S"
+  ip_address: 10.10.10.51
+  upper_outlet_light_name: "Basement Bookcase 1"
+
+packages:
+  ks-604s: !include "../../models/bk7231n/ks-604s.yaml"
+  static_ip: !include "../../common/static_ip.yaml"
+  upper_outlet_is_a_light: !include "../../common/upper_outlet_is_a_light.yaml"
+
