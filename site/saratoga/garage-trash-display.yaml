@@ -36,9 +36,8 @@ time:
     id: sntp_time
     timezone: America/Denver
     servers:
-      - 142.147.88.111
-      - 104.167.215.195
-      - 23.168.24.210
+      - 162.159.200.1
+      - 162.159.200.123 
 
 datetime:
   - platform: template

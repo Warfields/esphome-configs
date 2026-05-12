@@ -1,7 +1,7 @@
 substitutions:
-  name: workshop-closet
-  friendly_name: "Workshop Closet"
-  ip_address: 10.10.10.50
+  name: kitchen-accent-lighting
+  friendly_name: "Kitchen Accent Lighting"
+  ip_address: 10.10.10.49
 
 packages:
   ks-602s: !include "../../models/bk7231n/ks-602s.yaml"

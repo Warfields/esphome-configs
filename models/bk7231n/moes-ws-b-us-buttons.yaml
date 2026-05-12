@@ -1,0 +1,105 @@
+substitutions:
+  model: moes-ws-b-us-buttons
+
+packages:
+  bk72xx: !include "../../common/bk72xx.yaml"
+
+bk72xx:
+  board: cbu
+
+# Relay GPIOs (P24, P26, P6, P7) are intentionally left undefined so the
+# onboard relays stay off. sw0 is a no-op so the short-press action in
+# main_button.yaml (switch.toggle: sw0) resolves.
+switch:
+  - platform: template
+    id: sw0
+    optimistic: true
+    internal: true
+
+output:
+  - platform: gpio
+    id: led1
+    pin:
+      number: P14
+      inverted: true
+  - platform: gpio
+    id: led2
+    pin:
+      number: P16
+      inverted: true
+  - platform: gpio
+    id: led3
+    pin:
+      number: P20
+      inverted: true
+  - platform: gpio
+    id: led4
+    pin:
+      number: P22
+      inverted: true
+
+script:
+  - id: flash_led_1
+    mode: restart
+    then:
+      - output.turn_on: led1
+      - delay: 5s
+      - output.turn_off: led1
+  - id: flash_led_2
+    mode: restart
+    then:
+      - output.turn_on: led2
+      - delay: 5s
+      - output.turn_off: led2
+  - id: flash_led_3
+    mode: restart
+    then:
+      - output.turn_on: led3
+      - delay: 5s
+      - output.turn_off: led3
+  - id: flash_led_4
+    mode: restart
+    then:
+      - output.turn_on: led4
+      - delay: 5s
+      - output.turn_off: led4
+
+binary_sensor:
+  - <<: !include "../../common/main_button.yaml"
+    platform: gpio
+    id: button_1
+    name: "Button 1"
+    disabled_by_default: false
+    pin:
+      number: P23
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      - script.execute: flash_led_1
+  - platform: gpio
+    id: button_2
+    name: "Button 2"
+    pin:
+      number: P9
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      - script.execute: flash_led_2
+  - platform: gpio
+    id: button_3
+    name: "Button 3"
+    pin:
+      number: P28
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      - script.execute: flash_led_3
+  - platform: gpio
+    id: button_4
+    name: "Button 4"
+    pin:
+      number: P8
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      - script.execute: flash_led_4

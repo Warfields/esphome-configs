@@ -1,0 +1,8 @@
+substitutions:
+  name: house-scene-controller
+  friendly_name: "House Scene Controller"
+  ip_address: 10.10.10.47
+
+packages:
+  moes-ws-b-us-buttons: !include "../../models/bk7231n/moes-ws-b-us-buttons.yaml"
+  static_ip: !include "../../common/static_ip.yaml"
