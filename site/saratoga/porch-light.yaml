@@ -1,0 +1,9 @@
+substitutions:
+  name: porch-light
+  friendly_name: "Porch Light"
+  ip_address: 10.10.10.36
+
+packages:
+  mfa-01: !include "../../models/esp8266/mfa-01.yaml"
+  static_ip: !include "../../common/static_ip.yaml"
+  sw0_is_a_light: !include "../../common/sw0_is_a_light.yaml"
