@@ -2,7 +2,7 @@ substitutions:
   name: bedroom-toilet-light-and-fan
   friendly_name: "Primary Bedroom Toilet Switch"
   ip_address: 10.10.10.26
-  timeout: 5 minutes
+  timeout: 15 minutes
 
 packages:
   mfa-06: !include "../../models/esp8266/mfa-06.yaml"
