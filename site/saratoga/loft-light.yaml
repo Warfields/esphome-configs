@@ -1,0 +1,13 @@
+substitutions:
+  name: loft-light
+  friendly_name: "Loft Fan Light Switch"
+  ip_address: 10.10.10.48
+
+packages:
+  mfa-03: !include "../../models/esp8266/mfa-03.yaml"
+  static_ip: !include "../../common/static_ip.yaml"
+  sw0_is_a_light: !include "../../common/sw0_is_a_light.yaml"
+
+light:
+  - id: !extend sw0_light
+    name: Loft Fan Light
