@@ -1,0 +1,10 @@
+substitutions:
+  name: closet-pir-switch
+  friendly_name: "Primary Closet Light"
+  ip_address: 10.10.10.28
+  timeout: 2 minutes
+
+packages:
+  mfa-05: !include "../../models/esp8266/mfa-05.yaml"
+  static_ip: !include "../../common/static_ip.yaml"
+  sw0_is_a_light: !include "../../common/sw0_is_a_light.yaml"
