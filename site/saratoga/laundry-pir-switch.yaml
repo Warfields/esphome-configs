@@ -1,0 +1,19 @@
+substitutions:
+  name: laundry-pir-switch
+  friendly_name: "Laundry Room Switch"
+  ip_address: 10.10.10.44
+  timeout: 5 minutes
+
+packages:
+  mfa-06: !include "../../models/esp8266/mfa-06.yaml"
+  static_ip: !include "../../common/static_ip.yaml"
+  sw0_is_a_light: !include "../../common/sw0_is_a_light.yaml"
+  sw1_is_a_fan: !include "../../common/sw1_is_a_fan.yaml"
+
+light:
+  - id: !extend sw0_light
+    name: Laundry Room Light
+
+fan:
+  - id: !extend sw1_fan
+    name: Laundry Room Fan
