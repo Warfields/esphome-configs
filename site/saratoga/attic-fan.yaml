@@ -1,6 +1,6 @@
 substitutions:
   name: attic-fan
-  friendly_name: "Attic Fan"
+  friendly_name: "Attic"
   ip_address: 10.10.10.45
 
 packages:
