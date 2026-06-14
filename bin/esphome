@@ -1,5 +1,0 @@
-#!/bin/sh
-repo="$(dirname "$0")/.."
-tool="$(basename "$0")"
-export ESPHOME_DATA_DIR="${repo}/.esphome"
-uv run "${tool}" "$@"
