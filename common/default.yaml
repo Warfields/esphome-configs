@@ -15,7 +15,7 @@ packages:
   site_config: !include "../site_config.yaml"
 
 api:
-  reboot_timeout: 0s
+  reboot_timeout: 15min # Set to 0s to disable reboot, in case HA goes out
 
 ota:
   - platform: esphome
@@ -28,9 +28,6 @@ captive_portal: {}
 wifi:
   power_save_mode: NONE
   ap: {}
-web_server:
-  port: 80
-prometheus: {}
 
 script:
   - id: main_button_press

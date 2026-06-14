@@ -3,4 +3,9 @@ packages:
 
 bk72xx:
   framework:
-    version: dev
+    version: recommended
+
+# BK72xx has no native 802.11k/v roaming, so post-connect roam scans only hurt:
+# a disconnect during a scan wedges the API socket in a 5-min scan loop (esphome#12641).
+wifi:
+  post_connect_roaming: false
